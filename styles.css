@@ -1,0 +1,268 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --header-bg: #4a4a4a;
+    --header-text: #ffffff;
+    --section-bg: #ffffff;
+    --border-color: #4a4a4a;
+    --interactive-color: #3498db;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+h1 { margin: 0; }
+
+.contact-info {
+    margin-top: 10px;
+    color: var(--header-text);
+}
+
+section {
+    background-color: var(--section-bg);
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.job {
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.job-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.job-header:hover {
+    background-color: var(--interactive-color);
+}
+
+.job-title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.job-date {
+    font-style: italic;
+    margin: 5px 0 0;
+}
+
+.job-toggle {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.job-description {
+    padding: 10px;
+    background-color: var(--section-bg);
+    display: none;
+    border-top: 1px solid var(--border-color);
+}
+
+.job-description.active {
+    display: block;
+}
+
+.job-toggle.rotated {
+    transform: rotate(180deg);
+}
+
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider:after {
+    color: #fff;
+    display: block;
+    font-family: FontAwesome;
+    font-size: 18px;
+    content: '\f185';
+    position: absolute;
+    top: 6px;
+    left: 8px;
+}
+
+input:checked + .slider:after {
+    content: '\f186';
+    right: 8px;
+    left: auto;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --header-bg: #2c2c2c;
+    --header-text: #ffffff;
+    --section-bg: #2c2c2c;
+    --border-color: #f0f0f0;
+    --interactive-color: #3498db;
+}
+
+.skills-list {
+    padding: 0;
+    list-style: none;
+}
+
+.skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: var(--header-bg);
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--header-text);
+}
+
+.skill-name {
+    font-weight: bold;
+}
+
+.skill-level {
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    header {
+        padding: 15px;
+    }
+    
+    .theme-switch-wrapper {
+        top: 10px;
+        right: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .contact-info {
+        font-size: 0.9em;
+    }
+    
+    section {
+        padding: 15px;
+        margin: 10px 0;
+    }
+    
+    .job {
+        margin-bottom: 10px;
+    }
+    
+    .theme-switch {
+        width: 50px;
+        height: 28px;
+    }
+    
+    .slider:before {
+        height: 22px;
+        width: 22px;
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(22px);
+    }
+}
+
+@media (max-width: 480px) {
+    .skill {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .skill-level {
+        align-self: flex-end;
+        margin-top: 5px;
+    }
+}
